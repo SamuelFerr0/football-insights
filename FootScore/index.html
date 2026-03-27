@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootScore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="topo">
+        <img src="images/logo.png" alt="logo">
+        <nav class="menu">
+            <input type="checkbox" id="bars">
+            <label for="bars" class="menu_bars">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="partidas.html">Partidas</a></li>
+                <li><a href="estatistica.html">Estatisticas</a></li>
+                <li><a href="denunciar.html">Favoritos</a></li>
+                <li><a href="times.html">Times</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <div class="layout">
+        <aside class="coluna_direta">
+            <div class="pesquisa">
+                <h3 class="titulo">Buscar Times</h3>
+                <form action="" method="get"></form>
+                <div>
+                    <label for="nome_time">Nome:</label>
+                    <input type="text" id="time" name="nome_time" onkeyup="filtrarTimes()">
+                </div>
+                <div>
+                    <label for="fase">Fase/Estilo:</label>
+                    <input type="text" id="fase" name="fase" onkeyup="filtrarFase()">
+                </div>
+            
+            </div>
+        </aside>
+
+        <main>
+            <div>
+                <section class="banner">
+                    <h2>Times Analisados</h2>
+                </section>
+            </div>
+            <section>
+                <section class="seleçao_cards">
+                    <article class="card">
+                        <img src="images/atletico.png" alt="Imagem do Atletico Mineiro">
+                        <div class="card_conteudo">
+                            <h3>Atletico Mineiro</h3>
+                            <p>Estilo: Ofensivo</p>
+                            <p><span class="bolinha boa"></span>Fase: Boa</p>
+                            <a href="#"><button>Ver mais</button></a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="images/cruzeiro.png" alt="Imagem do Cruzeiro">
+                        <div class="card_conteudo">
+                            <h3>Cruzeiro</h3>
+                            <p>Estilo: Defensivo</p>
+                            <p><span class="bolinha ruim"></span>Fase: Ruim</p>
+                            <a href="#"><button>Ver mais</button></a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="images/america.png" alt="Imagem do America">
+                        <div class="card_conteudo">
+                            <h3>America Mineiro</h3>
+                            <p>Estilo: Equilibrado</p>
+                            <p><span class="bolinha medio"></span>Fase: Regular</p>
+                            <a href="#"><button>Ver mais</button></a>
+                        </div>
+                    </article>
+                </section>
+
+        </main>
+    </div>
+
+
+
+    <footer class="rodapé">
+        <h4>&copy; FootScore</h4>
+    </footer>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
