@@ -165,8 +165,8 @@ main {
 }
 
 main .seleçao_cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 20px;
 }
@@ -176,6 +176,7 @@ main .card {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  width: 32%;
 }
 
 main img {
@@ -370,6 +371,7 @@ footer {
 
 #historico {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 20px;
 }
@@ -386,6 +388,16 @@ footer {
   width: 100px;
   padding-bottom: 10px;
 }
+@media screen and (max-width: 1025px) {
+  main .card {
+  border: 1px solid white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+}
+
 
 @media screen and (max-width: 800px) {
   .layout {
@@ -469,4 +481,18 @@ footer {
   .footer-contato .social {
     justify-content: center;
   }
+  main .card {
+  border: 1px solid white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
+.card_partida_item {
+  border: 1px solid white;
+  border-radius: 5%;
+  width: 100%;
+  padding: 10px;
+}
+}
+

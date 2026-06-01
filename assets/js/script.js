@@ -3,7 +3,7 @@ const dados = {
     {
       id: 1,
       nome: "Atletico Mineiro",
-      imagem: "images/atletico.png",
+      imagem: "../assets/img/atletico.png",
       estilo: "Ofensivo",
       fase: "Boa",
       liga: "Brasileirão Série A",
@@ -17,7 +17,7 @@ const dados = {
     {
       id: 2,
       nome: "Cruzeiro",
-      imagem: "images/cruzeiro.png",
+      imagem: "../assets/img/cruzeiro.png",
       estilo: "Defensivo",
       fase: "Ruim",
       liga: "Brasileirão Série A",
@@ -31,7 +31,7 @@ const dados = {
     {
       id: 3,
       nome: "America Mineiro",
-      imagem: "images/america.png",
+      imagem: "../assets/img/america.png",
       estilo: "Equilibrado",
       fase: "Regular",
       liga: "Brasileirão Série A",
@@ -50,63 +50,63 @@ const dados = {
       timeId: 1,
       adversario: "Flamengo",
       resultado: "Atlético 2 x 1 Flamengo",
-      imagem: "images/flamengo.png",
+      imagem: "../assets/img/flamengo.png",
     },
     {
       id: 102,
       timeId: 1,
       adversario: "Palmeiras",
       resultado: "Atlético 0 x 0 Palmeiras",
-      imagem: "images/palmeiras.png",
+      imagem: "../assets/img/palmeiras.png",
     },
     {
       id: 103,
       timeId: 1,
       adversario: "São Paulo",
       resultado: "São Paulo 1 x 3 Atlético",
-      imagem: "images/saopaulo.png",
+      imagem: "../assets/img/saopaulo.png",
     },
     {
       id: 201,
       timeId: 2,
       adversario: "Grêmio",
       resultado: "Cruzeiro 0 x 2 Grêmio",
-      imagem: "images/gremio.png",
+      imagem: "../assets/img/gremio.png",
     },
     {
       id: 202,
       timeId: 2,
       adversario: "Fluminense",
       resultado: "Fluminense 1 x 0 Cruzeiro",
-      imagem: "images/fluminense.png",
+      imagem: "../assets/img/fluminense.png",
     },
     {
       id: 203,
       timeId: 2,
       adversario: "Vasco",
       resultado: "Cruzeiro 1 x 1 Vasco",
-      imagem: "images/vasco.png",
+      imagem: "../assets/img/vasco.png",
     },
     {
       id: 301,
       timeId: 3,
       adversario: "Santos",
       resultado: "América 1 x 1 Santos",
-      imagem: "images/santos.png",
+      imagem: "../assets/img/santos.png",
     },
     {
       id: 302,
       timeId: 3,
       adversario: "Botafogo",
       resultado: "Botafogo 0 x 2 América",
-      imagem: "images/botafogo.png",
+      imagem: "../assets/img/botafogo.png",
     },
     {
       id: 303,
       timeId: 3,
       adversario: "Cuiabá",
       resultado: "América 0 x 1 Cuiabá",
-      imagem: "images/cuiaba.png",
+      imagem: "../assets/img/cuiaba.png",
     },
   ],
 };
@@ -159,7 +159,7 @@ function renderizarCards(listaTimes) {
   listaCards.innerHTML = "";
   
   if (listaTimes.length === 0) {
-    listaCards.innerHTML = `<p style="color: white; grid-column: 1/-1;">Nenhum time encontrado.</p>`;
+    listaCards.innerHTML = `<p>Nenhum time encontrado.</p>`;
     return;
   }
 
@@ -211,8 +211,8 @@ if (footer) {
       </div>
       
       <div class="desenvolvedor">
-        <p class="nome">Desenvolvido por: Seu Nome Completo</p>
-        <p class="dev-info">Curso: Seu Curso | Turma: Sua Turma</p>
+        <p class="nome">Desenvolvido por: Samuel Ferreira Guimarães </p>
+        <p class="dev-info">Curso: Engenharia de Software </p>
       </div>
 
       <div class="footer-contato">
@@ -270,68 +270,4 @@ if (carrosel) {
 
 function verDetalhes(id) {
   window.location.href = `detalhes.html?id=${id}`;
-}
-
-function carregarDetalhes() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const idTime = parseInt(urlParams.get("id"));
-
-  if (!idTime) return;
-
-  const time = dados.times.find((t) => t.id === idTime);
-  if (!time) return;
-
-  const classeFase =
-    time.fase === "Boa" ? "boa" : time.fase === "Ruim" ? "ruim" : "medio";
-
-  const container = document.getElementById("detalhes-time");
-  if (container) {
-    container.innerHTML = `
-      <div class="card-detalhe">
-        <img src="${time.imagem}" alt="Imagem do ${time.nome}">
-        <div class="detalhe-conteudo">
-          <h2>${time.nome}</h2>
-          <p><strong>Liga:</strong> ${time.liga}</p>
-          <p><strong>Estilo de Jogo:</strong> ${time.estilo}</p>
-          <p>
-            <strong>Fase:</strong>
-            <span class="bolinha ${classeFase}"></span>${time.fase}
-          </p>
-          <p><strong>Sobre o Time:</strong> ${time.descricao}</p>
-          <div class="estatisticas">
-            <h3>Estatísticas</h3>
-            <p>Vitórias: ${time.vitorias}</p>
-            <p>Empates: ${time.empates}</p>
-            <p>Derrotas: ${time.derrotas}</p>
-          </div>
-          <a href="index.html"><button>← Voltar</button></a>
-        </div>
-      </div>
-      <div class="titulo-partidas">
-        <h3>Últimas Partidas</h3>
-      </div>
-    `;
-  }
-
-  const historico = document.getElementById("historico");
-  if (historico) {
-    const partidasDoTime = dados.ultimasPartidas.filter(
-      (p) => p.timeId === time.id,
-    );
-    let htmlPartidas = "";
-
-    partidasDoTime.forEach((partida) => {
-      htmlPartidas += `
-        <div class="card_partida_item">
-          <img src="${partida.imagem}" alt="Escudo do ${partida.adversario}">
-          <h4>${partida.resultado}</h4>
-        </div>
-      `;
-    });
-    historico.innerHTML = htmlPartidas;
-  }
-}
-
-if (document.getElementById("detalhes-time")) {
-  carregarDetalhes();
 }
