@@ -2,7 +2,6 @@
 
 Nome: Samuel Ferreira Guimarães
 
-Matricula: 926778
 
 Descreva brevemente o projeto: Plataforma web de análise de times de futebol, entidade principal: Times entidade secundaria: Partidas disputadas(Dados das partidas)
 
